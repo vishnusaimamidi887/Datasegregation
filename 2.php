@@ -213,12 +213,12 @@ $LOCKRES="";
 	
 
 	if (mysqli_num_rows($result1) > 0) {
-		$psql1.="update dematholding set HOL= \"".$HOL."\" ,  FREEHOL= \"".$FREEHOL."\" ,  HOLLCK= \"".$HOLLCK."\" ,  HOLBLOCK= \"".$HOLBLOCK."\" ,  HOLPLD= \"".$HOLPLD."\" ,  HOLPLDLCK= \"".$HOLPLDLCK."\" , HOLPLDUNC= \"".$HOLPLDUNC."\" , HOLPLDLCKU= \"".$HOLPLDLCKU."\" , HOLREM= \"".$HOLREM."\" , HOLREMLCK= \"".$HOLREMLCK."\"  , HOLCMIDD= \"".$HOLCMIDD."\"  , HOLCMPOOL= \"".$HOLCMPOOL."\"  , HOLSET= \"".$HOLSET."\"  , NDUPOSHOLD= \"".$NDUPOSHOLD."\" , NDULOCKHOL= \"".$NDULOCKHOL."\"  , NDUUNCPOS= \"".$NDUUNCPOS."\"  , NDUUNCLOCK= \"".$NDUUNCLOCK."\"  , LOCKDT= \"".$LOCKDT."\" , LOCKCOD= \"".$LOCKCOD."\" , PLDGCOD= \"".$PLDGCOD."\" where CC = \"".$CC."\" AND DPID = \"".$DPID."\" AND CLID = \"".$CLID."\" AND ISIN = \"".$ISIN."\" AND DATADATE = \"".$DATADATE."\";";
-		
+		$psql1="update dematholding set HOL= \"".$HOL."\" ,  FREEHOL= \"".$FREEHOL."\" ,  HOLLCK= \"".$HOLLCK."\" ,  HOLBLOCK= \"".$HOLBLOCK."\" ,  HOLPLD= \"".$HOLPLD."\" ,  HOLPLDLCK= \"".$HOLPLDLCK."\" , HOLPLDUNC= \"".$HOLPLDUNC."\" , HOLPLDLCKU= \"".$HOLPLDLCKU."\" , HOLREM= \"".$HOLREM."\" , HOLREMLCK= \"".$HOLREMLCK."\"  , HOLCMIDD= \"".$HOLCMIDD."\"  , HOLCMPOOL= \"".$HOLCMPOOL."\"  , HOLSET= \"".$HOLSET."\"  , NDUPOSHOLD= \"".$NDUPOSHOLD."\" , NDULOCKHOL= \"".$NDULOCKHOL."\"  , NDUUNCPOS= \"".$NDUUNCPOS."\"  , NDUUNCLOCK= \"".$NDUUNCLOCK."\"  , LOCKDT= \"".$LOCKDT."\" , LOCKCOD= \"".$LOCKCOD."\" , PLDGCOD= \"".$PLDGCOD."\" where CC = \"".$CC."\" AND DPID = \"".$DPID."\" AND CLID = \"".$CLID."\" AND ISIN = \"".$ISIN."\" AND DATADATE = \"".$DATADATE."\";";
+		mysqli_query($con,$psql1);
 	} 
 	else {
-		$sql1.="INSERT INTO dematholding values (\"".$CC."\",\"".$HOL."\",\"".$FREEHOL."\",\"".$HOLLCK."\",\"".$HOLBLOCK."\",\"".$HOLPLD."\",\"".$HOLPLDLCK."\",\"".$HOLPLDUNC."\",\"".$HOLPLDLCKU."\",\"".$HOLREM."\",\"".$HOLREMLCK."\",\"".$HOLCMIDD."\",\"".$HOLCMPOOL."\",\"".$HOLSET."\",\"".$NDUPOSHOLD."\",\"".$NDULOCKHOL."\",\"".$NDUUNCPOS."\",\"".$NDUUNCLOCK."\",\"".$DPID."\",\"".$CLID."\",\"".$ISIN."\",\"".$DATADATE."\",\"".$LOCKDT."\",\"".$LOCKCOD."\",\"".$PLDGCOD."\");";
-	
+		$sql1="INSERT INTO dematholding values (\"".$CC."\",\"".$HOL."\",\"".$FREEHOL."\",\"".$HOLLCK."\",\"".$HOLBLOCK."\",\"".$HOLPLD."\",\"".$HOLPLDLCK."\",\"".$HOLPLDUNC."\",\"".$HOLPLDLCKU."\",\"".$HOLREM."\",\"".$HOLREMLCK."\",\"".$HOLCMIDD."\",\"".$HOLCMPOOL."\",\"".$HOLSET."\",\"".$NDUPOSHOLD."\",\"".$NDULOCKHOL."\",\"".$NDUUNCPOS."\",\"".$NDUUNCLOCK."\",\"".$DPID."\",\"".$CLID."\",\"".$ISIN."\",\"".$DATADATE."\",\"".$LOCKDT."\",\"".$LOCKCOD."\",\"".$PLDGCOD."\");";
+		mysqli_query($con,$sql1);
 	}
 	
 	
@@ -230,7 +230,7 @@ $LOCKRES="";
 	if (mysqli_num_rows($result2) > 0) {
 
 	
-		$psql2.="
+		$psql2="
 		update demataddress set 
 		
 		statuscode = \"".$STATUSCODE."\" ,  
@@ -299,11 +299,13 @@ $LOCKRES="";
 
 		DPID = \"".$DPID."\" AND 
 		CLID = \"".$CLID."\";";
+		mysqli_query($con,$psql2);
 	} 
 	else {
-		$sql2.="INSERT INTO demataddress (DPID,CLID,statuscode,substatuscode,ACCAT,OCCUP,NAME,FNAME,AD1,	AD2,AD3,AD4,PIN,PHONE,FAX,JT1,FJT1,JT2,FJT2,PAN1,PAN2,PAN3,NOM,NOMNAME,NAD1,NAD2,NAD3,NAD4,NPIN,DBMINOR,MIND,ACNO,BANKNAME,BANKAD1,BANKAD2,BANKAD3,BANKAD4,BANKPIN,RBIREF,RBIDATE,SEBIREGNO,BTAX,STATUS,MICRCD,IFSC,ACTYPE,NAMEMAPIN,JT1MAPIN,JT2MAPIN,EMAIL1,EMAIL2,EMAIL3,RGSFLG,ANREPFLG,UIDISTHOL,UID2NDHOL,UID3RDHOL,PANGAR,UIDGAR,PATST,K,DATADATE,DOB)
+		$sql2="INSERT INTO demataddress (DPID,CLID,statuscode,substatuscode,ACCAT,OCCUP,NAME,FNAME,AD1,	AD2,AD3,AD4,PIN,PHONE,FAX,JT1,FJT1,JT2,FJT2,PAN1,PAN2,PAN3,NOM,NOMNAME,NAD1,NAD2,NAD3,NAD4,NPIN,DBMINOR,MIND,ACNO,BANKNAME,BANKAD1,BANKAD2,BANKAD3,BANKAD4,BANKPIN,RBIREF,RBIDATE,SEBIREGNO,BTAX,STATUS,MICRCD,IFSC,ACTYPE,NAMEMAPIN,JT1MAPIN,JT2MAPIN,EMAIL1,EMAIL2,EMAIL3,RGSFLG,ANREPFLG,UIDISTHOL,UID2NDHOL,UID3RDHOL,PANGAR,UIDGAR,PATST,K,DATADATE,DOB)
 		values (\"".$DPID."\",\"".$CLID."\",\"".$STATUSCODE."\",\"".$SUBSTATUSCODE."\",\"".$ACCAT."\",\"".$OCCUP."\",\"".$NAME."\",\"".$FNAME."\",\"".$AD1."\",\"".$AD2."\",\"".$AD3."\",\"".$AD4."\",\"".$PIN."\",\"".$PHONE."\",\"".$FAX."\",\"".$JT1."\",\"".$FJT1."\",\"".$JT2."\",\"".$FJT2."\",\"".$PAN1."\",\"".$PAN2."\",\"".$PAN3."\",\"".$NOM."\",\"".$NOMNAME."\",\"".$NAD1."\",\"".$NAD2."\",\"".$NAD3."\",\"".$NAD4."\",\"".$NPIN."\",\"".$DBMINOR."\",\"".$MIND."\",\"".$ACNO."\",\"".$BANKNAME."\",\"".$BANKAD1."\",\"".$BANKAD2."\",\"".$BANKAD3."\",\"".$BANKAD4."\",\"".$BANKPIN."\",\"".$RBIREF."\",\"".$RBIDATE."\",\"".$SEBIREGNO."\",\"".$BTAX."\",\"".$STATUS."\",\"".$MICRCD."\",\"".$IFSC."\",\"".$ACTYPE."\",\"".$NAMEMAPIN."\",\"".$JT1MAPIN."\",\"".$JT2MAPIN."\",\"".$EMAIL1."\",\"".$EMAIL2."\",\"".$EMAIL3."\",\"".$RGSFLG."\",\"".$ANREPFLG."\",\"".$UIDISTHOL."\",\"".$UID2NDHOL."\",\"".$UID3RDHOL."\",\"".$PANGAR."\",\"".$UIDGAR."\",\"".$PATST."\",\"".$K."\",\"".$DATADATE."\",\"".$DOB."\");";		
-	}
+mysqli_query($con,$sql2);	
+}
 
 
 	$qsql3="Select * from lockdt where CC = \"".$CC."\" AND DPID = \"".$DPID."\" AND CLID = \"".$CLID."\" AND ISIN = \"".$ISIN."\" AND LOCKDT = \"".$LOCKDT."\"  AND DATADATE = \"".$DATADATE."\" AND LOCKRES = \"".$LOCKRES."\";";	
@@ -311,7 +313,7 @@ $LOCKRES="";
 	
 
 	if (mysqli_num_rows($result3) > 0) {
-		$psql3.="update lockdt set 
+		$psql3="update lockdt set 
 		RECTYPE= \"".$RECTYPE."\" ,  
 		LINE= \"".$LINE."\" ,  
 		BENTYP= \"".$BENTYP."\" ,  
@@ -326,10 +328,12 @@ $LOCKRES="";
 		ISIN = \"".$ISIN."\" AND  
 		LOCKDT = \"".$LOCKDT."\" AND  
 		LOCKRES = \"".$LOCKRES."\" AND 
-		DATADATE = \"".$DATADATE."\";";
+		DATE = \"".$DATADATE."\";";
+		mysqli_query($con,$psql3);
 	} 
 	else {
-		$sql3.="INSERT INTO lockdt values (\"".$RECTYPE."\",\"".$LINE."\",\"".$DPID."\",\"".$CLID."\",\"".$BENTYP."\",\"".$HOL."\",\"".$LOCKIND."\",\"".$LOCKRES."\",\"".$LOCKDT."\",\"".$CC."\",\"".$ISIN."\",\"".$DATADATE."\");";
+		$sql3="INSERT INTO lockdt values (\"".$RECTYPE."\",\"".$LINE."\",\"".$DPID."\",\"".$CLID."\",\"".$BENTYP."\",\"".$HOL."\",\"".$LOCKIND."\",\"".$LOCKRES."\",\"".$LOCKDT."\",\"".$CC."\",\"".$ISIN."\",\"".$DATADATE."\");";
+		mysqli_query($con,$sql3);
 	}
 	
 
@@ -360,32 +364,32 @@ $LOCKRES="";
 	// echo "<p style='background:red'>".$pat_code_from_fill_zero_check['patcode']."</p>";
 	// demat address ends
 	
-	if($i%500==0){
-		// $sql1.=";";
-		// $sql2.=";";
-		// $sql3.=";";
+	// if($i%500==0){
+	// 	// $sql1.=";";
+	// 	// $sql2.=";";
+	// 	// $sql3.=";";
 
-		//echo $sql2;		
+	// 	//echo $sql2;		
 		
-		// mysqli_multi_query($con,$sql1);
-		// mysqli_multi_query($con,$sql2);
-		// mysqli_multi_query($con,$sql3);
-		// mysqli_multi_query($con,$psql1);
-		// mysqli_multi_query($con,$psql2);
-		// mysqli_multi_query($con,$psql3);
+	// 	// mysqli_multi_query($con,$sql1);
+	// 	// mysqli_multi_query($con,$sql2);
+	// 	// mysqli_multi_query($con,$sql3);
+	// 	// mysqli_multi_query($con,$psql1);
+	// 	// mysqli_multi_query($con,$psql2);
+	// 	// mysqli_multi_query($con,$psql3);
 
-		$total= $sql1 . $sql2 . $sql3 . $psql1 . $psql2 . $psql3 ;
-		mysqli_multi_query($con,$total);
+	// 	$total= $sql1 . $sql2 . $sql3 . $psql1 . $psql2 . $psql3 ;
+	// 	mysqli_multi_query($con,$total);
 
- 		$sql1 = "";
-		$sql2 = "";
-		$sql3 = "";
-		$psql1 = "";
-		$psql2 = "";
-		$psql3 = "";
+ 	// 	$sql1 = "";
+	// 	$sql2 = "";
+	// 	$sql3 = "";
+	// 	$psql1 = "";
+	// 	$psql2 = "";
+	// 	$psql3 = "";
 
-		$total = "";
-	}
+	// 	$total = "";
+	// }
 }
 
 
@@ -397,11 +401,11 @@ $LOCKRES="";
 // echo "$psql3 <br> <br>";
 
 
-$total= $sql1 . $sql2 . $sql3 . $psql1 . $psql2 . $psql3 ;
+// $total= $sql1 . $sql2 . $sql3 . $psql1 . $psql2 . $psql3 ;
 
-if($total!=null){
-	mysqli_multi_query($con,$total);
-}
+// if($total!=null){
+// 	mysqli_multi_query($con,$total);
+// }
 
 
 // if($sql1!=null||$sql1!=""){
